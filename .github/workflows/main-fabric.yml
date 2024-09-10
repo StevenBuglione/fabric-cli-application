@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v2.1
+        uses: StevenBuglione/fabric-cli-action@docker-js
         with:
           resource_type: "workspace"
           action: "create"
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v2.1
+        uses: StevenBuglione/fabric-cli-action@docker-js
         with:
           resource_type: "workspace"
           action: "list"
