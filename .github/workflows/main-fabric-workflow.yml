@@ -1,0 +1,29 @@
+name: "Manage Fabric Workspaces"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-workspaces:
+    uses: StevenBuglione/fabric-cli-action/.github/workflows/fabric-workflows.yml@main
+    with:
+      resource_type: "workspace"
+      action: "create"
+      value: "${{ github.run_id }}"
+    secrets:
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+  list-workspaces:
+    needs: create-workspaces
+    uses: StevenBuglione/fabric-cli-action/.github/workflows/fabric-workflows.yml@main
+    with:
+      resource_type: "workspace"
+      action: "list"
+    secrets:
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
