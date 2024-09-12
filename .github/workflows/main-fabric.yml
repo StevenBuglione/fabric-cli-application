@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v3.0
+        uses: StevenBuglione/fabric-cli-action@v2.0
         with:
           resource_type: "workspace"
           action: "create"
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v3.0
+        uses: StevenBuglione/fabric-cli-action@v2.0
         with:
           resource_type: "workspace"
           action: "list"
