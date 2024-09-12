@@ -3,18 +3,19 @@ name: "Manage Fabric Workspaces"
 on:
   push:
     branches:
-      - 2.0.0
+      - main
 
 env:
-  AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
-  AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+  AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
 
 jobs:
   create-workspaces:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v3.0
+        uses: StevenBuglione/fabric-cli-action@v1.0
         with:
           resource_type: "workspace"
           action: "create"
@@ -25,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Fabric CLI
-        uses: StevenBuglione/fabric-cli-action@v3.0
+        uses: StevenBuglione/fabric-cli-action@v1.0
         with:
           resource_type: "workspace"
           action: "list"
